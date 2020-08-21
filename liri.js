@@ -29,3 +29,19 @@ switch (action) {
     //If user has not specified a song , use default
     // if (value === "") {
     //   value = defaultSong;
+
+    getSongs(value)
+    break;
+  case "movie-this":
+    //If user has not specified a movie , use default
+    if (value == "") {
+      value = defaultMovie;
+    }
+    getMovies(value)
+    break;
+  case "do-what-it-says":
+    doWhatItSays()
+    break;
+  default:
+    break;
+}
