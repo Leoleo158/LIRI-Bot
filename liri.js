@@ -59,3 +59,30 @@ function getBands(artist) {
         console.log(error);
       });
   }
+
+  function getSongs(songName) {
+    // var songName = value;
+  
+    //If user has not specified a song , default to "The Sign" by Ace of Bass
+    if (songName === "") {
+      songName = "I Saw the Sign";
+    }
+  
+    spotify.search({ type: 'track', query: songName }, function (err, data) {
+      if (err) {
+        return console.log('Error occurred: ' + err);
+      }
+      // else {
+      //   console.log("Not right now. Later?")
+  
+      // console.log(JSON.stringify(data)); 
+  
+      // The song's name
+  //Artist(s)
+  console.log("Artists: ", data.tracks.items[0].album.artists[0].name)
+  // A preview link of the song from Spotify
+  console.log("Preview Link: ", data.tracks.items[0].preview_url)
+  // The album that the song is from
+  console.log("Album Name: ", data.tracks.items[0].album.name)
+});
+}
