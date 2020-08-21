@@ -86,3 +86,26 @@ function getBands(artist) {
   console.log("Album Name: ", data.tracks.items[0].album.name)
 });
 }
+
+function getMovies(movieName) {
+    // var movieName = value;
+    axios.get("http://www.omdbapi.com/?apikey=42518777&t=" + movieName)
+      .then(function (data) {
+        // console.log(data.data); 
+        var results = `
+        Title of the movie: ${data.data.Title}
+        Year the movie came out: ${data.data.Year}
+        IMDB Rating of the movie: ${data.data.Rated}
+        Rotten Tomatoes Rating of the movie: ${data.data.Ratings[1].Value}
+        Country where the movie was produced: ${data.data.Country}
+        Language of the movie: ${data.data.Language}
+        Plot of the movie: ${data.data.Plot}
+        Actors in the movie: ${data.data.Actors}`;
+        console.log(results)
+  
+        // console.log(data);
+        // console.log("Name of the venue:", response.data[0].venue.name);
+        // console.log("Venue location:", response.data[0].venue.city);
+        // var eventDate = moment(response.data[0].datetime).format('MM/DD/YYYY');
+        // console.log("Date of the Event:", eventDate);
+      })
