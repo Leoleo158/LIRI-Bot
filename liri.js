@@ -109,3 +109,35 @@ function getMovies(movieName) {
         // var eventDate = moment(response.data[0].datetime).format('MM/DD/YYYY');
         // console.log("Date of the Event:", eventDate);
       })
+
+      .catch(function (error) {
+        console.log(error);
+      });
+      //Response if user does not type in a movie title
+      if (movieName === "Mr. Nobody") {
+        console.log("-----------------------");
+        console.log("If you haven't watched 'Mr. Nobody,' then you should: http://www.imdb.com/title/tt0485947/");
+        console.log("It's on Netflix!");
+    };
+  }
+  function doWhatItSays() {
+    fs.readFile("random.txt", "utf8", function (err, data) {
+      data = data.split(",");
+      var action = data[0]
+      var value = data[1]
+      // getSongs(value)
+      switch (action) {
+        case "concert-this":
+          getBands(value)
+          break;
+        case "spotify-this-song":
+          getSongs(value)
+          break;
+        case "movie-this":
+          getMovies(value)
+          break;
+        default:
+          break;
+      }
+    });
+  }  

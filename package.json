@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/Leoleo158/LIRI-Bot/issues"
   },
-  "homepage": "https://github.com/Leoleo158/LIRI-Bot#readme"
+  "homepage": "https://github.com/Leoleo158/LIRI-Bot#readme",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "node-spotify-api": "^1.1.1"
+  }
 }
